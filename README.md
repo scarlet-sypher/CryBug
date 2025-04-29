@@ -583,7 +583,7 @@ CryBug continues to evolve with new capabilities planned for upcoming releases.
 ### Getting Help
 - **Documentation** - Comprehensive user guides at `/help`
 - **Community Forum** - Peer support at `https://community.crybug.io`
-- **Email Support** - Contact `support@crybug.io` for assistance
+- **Email Support** - Contact `crybug08@gmail.com` for assistance
 - **Video Tutorials** - Available at the CryBug YouTube channel
 - **Live Chat** - Available during business hours for premium accounts
 
