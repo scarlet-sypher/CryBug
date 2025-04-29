@@ -585,7 +585,7 @@ CryBug continues to evolve with new capabilities planned for upcoming releases.
 - **Community Forum** - Peer support at `https://community.crybug.io`
 - **Email Support** - Contact `crybug08@gmail.com` for assistance
 - **Video Tutorials** - Available at the CryBug YouTube channel
-- **Live Chat** - Available during business hours for premium accounts
+- **Live Chat** - Available during business hours for premium accounts.
 
 ### Contributing
 We welcome community contributions to CryBug. Please review our contribution guidelines before submitting pull requests or feature suggestions.
