@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Options | CryBug</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="login.css">
+  <script src="login.js" defer> </script>
+
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center px-4 py-12 relative">
+  
+  <!-- Animated background particles -->
+  <div class="particles" id="particles"></div>
+
+  <div class="button-container absolute top-6 w-full max-w-6xl flex justify-between px-6">
+    <!-- Home Button -->
+    <a href="../index.php" class="nav-button flex items-center bg-gradient-to-r from-teal-500 via-blue-500 to-indigo-500 text-white py-3 px-6 rounded-xl shadow-lg transition-all duration-300 hover:from-teal-600 hover:via-blue-600 hover:to-indigo-600 hover:scale-105 hover:shadow-xl group">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 icon-float group-hover:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+      <span class="font-semibold">Home</span>
+    </a>
+  
+    <!-- Sign Up Button -->
+    <a href="../login-pages/login.html" class="nav-button flex items-center bg-gradient-to-r from-purple-500 via-fuchsia-500 to-pink-500 text-white py-3 px-6 rounded-xl shadow-lg transition-all duration-300 hover:from-purple-600 hover:via-fuchsia-600 hover:to-pink-600 hover:scale-105 hover:shadow-xl group">
+      <span class="font-semibold">Login</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2 icon-float group-hover:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+      </svg>
+    </a>
+  </div>
+  
+  <!-- Logo -->
+  <div class="mb-8 text-center">
+    <div class="logo-container mb-6">
+      <div class="logo-ring logo-ring-1"></div>
+      <div class="logo-ring logo-ring-2"></div>
+      <div class="logo-ring logo-ring-3"></div>
+      <div class="logo-icon bg-transparent rounded-full p-2 w-[120px] h-[120px] flex items-center justify-center shadow-lg">
+        <img src="../images/Logo/logo.png" alt="CryBug Logo" class="w-full h-full object-contain">
+      </div>
+    </div>
+    <h1 class="mobile-heading font-bold mb-2 gradient-text leading-tight sm:leading-snug animated-gradient-text text-center lg:text-left whitespace-nowrap overflow-hidden text-ellipsis" style="font-size: clamp(2rem, 5vw, 4.5rem);">
+      Create a Crybug Account
+    </h1>
+    <p class="text-gray-400 text-2xl">Select your Sign in option</p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
+    
+    <!-- Company Login -->
+    <a href="../leaders/manager-Signup.php" class="crybug-card rounded-2xl p-6 md:p-10 bg-gradient-to-r from-cyan-600 via-sky-600 to-teal-700 text-white text-center crybug-glow group">
+      <div class="bg-white bg-opacity-20 rounded-full p-4 w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-110 transition-transform">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        </svg>
+      </div>
+      <h2 class="text-2xl font-bold mb-3">Manager</h2>
+      <p class="text-sm opacity-90 mb-4">Sign in as a project leader or manager</p>
+
+      <span class="inline-block text-sm font-semibold py-2 px-4 rounded-full bg-white bg-opacity-20 group-hover:bg-opacity-30 transition-all">Sign up</span>
+    </a>
+
+    <!-- EmploSign up -->
+    <a href="../companies/company-Signup.php" class="crybug-card rounded-2xl p-6 md:p-10 bg-gradient-to-br from-indigo-500 to-purple-600 text-white text-center crybug-glow group">
+      <div class="bg-white bg-opacity-20 rounded-full p-4 w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-110 transition-transform">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+        </svg>
+      </div>
+      <h2 class="text-2xl font-bold mb-3">Company</h2>
+      <p class="text-sm opacity-90 mb-4">Sign in as a company or organization</p>
+      
+      <span class="inline-block text-sm font-semibold py-2 px-4 rounded-full bg-white bg-opacity-20 group-hover:bg-opacity-30 transition-all">Sign up</span>
+    </a>
+
+    <!-- Leader Login -->
+    <a href="../employee/emp-Signup.php" class="crybug-card rounded-2xl p-6 md:p-10 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-center crybug-glow group">
+      <div class="bg-white bg-opacity-20 rounded-full p-4 w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-110 transition-transform">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+      </div>
+      <h2 class="text-2xl font-bold mb-3">Employee</h2>
+      <p class="text-sm opacity-90 mb-4">Sign in as a team member or developer</p>
+      <span class="inline-block text-sm font-semibold py-2 px-4 rounded-full bg-white bg-opacity-20 group-hover:bg-opacity-30 transition-all">Sign up</span>
+    </a>
+
+  </div>
+
+  
+</body>
+</html>

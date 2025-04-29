@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Report Bug Modal -->
+  <div id="reportBugModal" class="modal">
+    <div class="modal-content glass-effect p-6">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold text-white"><i class="fas fa-bug mr-2"></i>Report New Bug</h2>
+        <button class="close-modal text-gray-400 hover:text-white">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form>
+        <div class="mb-4">
+          <label class="block text-gray-400 text-sm font-medium mb-2">Bug Title</label>
+          <input type="text" class="w-full bg-gray-900 text-white border border-gray-700 rounded p-2 focus:outline-none focus:border-red-500" placeholder="Short bug description">
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-gray-400 text-sm font-medium mb-2">Project</label>
+            <select class="w-full bg-gray-900 text-white border border-gray-700 rounded p-2 focus:outline-none focus:border-red-500">
+              <option>Select Project</option>
+              <option>Project Alpha</option>
+              <option>Project Beta</option>
+              <option>Project Gamma</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-gray-400 text-sm font-medium mb-2">Priority</label>
+            <select class="w-full bg-gray-900 text-white border border-gray-700 rounded p-2 focus:outline-none focus:border-red-500">
+              <option value="high">High</option>
+              <option value="medium" selected>Medium</option>
+              <option value="low">Low</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-gray-400 text-sm font-medium mb-2">Bug Type</label>
+            <select class="w-full bg-gray-900 text-white border border-gray-700 rounded p-2 focus:outline-none focus:border-red-500">
+              <option>UI/UX Issue</option>
+              <option>Functionality</option>
+              <option>Performance</option>
+              <option>Security</option>
+              <option>Compatibility</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-gray-400 text-sm font-medium mb-2">Environment</label>
+            <select class="w-full bg-gray-900 text-white border border-gray-700 rounded p-2 focus:outline-none focus:border-red-500">
+              <option>Development</option>
+              <option>Testing</option>
+              <option>Staging</option>
+              <option>Production</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="mb-4">
+          <label class="block text-gray-400 text-sm font-medium mb-2">Bug Description</label>
+          <textarea class="w-full bg-gray-900 text-white border border-gray-700 rounded p-2 focus:outline-none focus:border-red-500" rows="4" placeholder="Detailed description of the bug..."></textarea>
+        </div>
+        
+        <div class="mb-4">
+          <label class="block text-gray-400 text-sm font-medium mb-2">Steps to Reproduce</label>
+          <textarea class="w-full bg-gray-900 text-white border border-gray-700 rounded p-2 focus:outline-none focus:border-red-500" rows="3" placeholder="1. Navigate to page..."></textarea>
+        </div>
+        
+        <div class="mb-4">
+          <label class="block text-gray-400 text-sm font-medium mb-2">Expected vs. Actual Behavior</label>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <textarea class="w-full bg-gray-900 text-white border border-gray-700 rounded p-2 focus:outline-none focus:border-red-500" rows="2" placeholder="Expected behavior..."></textarea>
+            <textarea class="w-full bg-gray-900 text-white border border-gray-700 rounded p-2 focus:outline-none focus:border-red-500" rows="2" placeholder="Actual behavior..."></textarea>
+          </div>
+        </div>
+        
+        <div class="mb-4">
+          <label class="block text-gray-400 text-sm font-medium mb-2">Browser/Device Info</label>
+          <input type="text" class="w-full bg-gray-900 text-white border border-gray-700 rounded p-2 focus:outline-none focus:border-red-500" placeholder="E.g., Chrome 101, Windows 10, iPhone 13, etc.">
+        </div>
+        
+        <div class="mb-4">
+          <label class="block text-gray-400 text-sm font-medium mb-2">Assign To</label>
+          <select class="w-full bg-gray-900 text-white border border-gray-700 rounded p-2 focus:outline-none focus:border-red-500">
+            <option>Select Team Member</option>
+            <option>Alice Johnson</option>
+            <option>Bob Smith</option>
+            <option>Carol Davis</option>
+          </select>
+        </div>
+        
+        <div class="mb-4">
+          <label class="block text-gray-400 text-sm font-medium mb-2">Attachments</label>
+          <div class="border border-dashed border-gray-700 rounded p-4 text-center bg-gray-900 hover:bg-gray-800 cursor-pointer">
+            <i class="fas fa-cloud-upload-alt text-2xl text-gray-400 mb-2"></i>
+            <p class="text-gray-400 text-sm">Click to upload screenshots or files</p>
+            <input type="file" class="hidden" multiple>
+          </div>
+        </div>
+        
+        <div class="flex justify-end gap-2 mt-6">
+          <button type="button" class="close-modal bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded">Cancel</button>
+          <button type="submit" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded">Submit Bug</button>
+        </div>
+      </form>
+    </div>
+  </div>
+    
+
+
+
+  <!-- Add Project Modal -->
+  <div id="addProjectModal" class="modal">
+    <div class="modal-content glass-effect p-6">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold text-white"><i class="fas fa-plus-circle mr-2"></i>Add New Project</h2>
+        <button class="close-modal text-gray-400 hover:text-white">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form>
+        <div class="mb-4">
+          <label class="block text-gray-400 text-sm font-medium mb-2">Project Name</label>
+          <input type="text" class="w-full bg-gray-900 text-white border border-gray-700 rounded p-2 focus:outline-none focus:border-red-500" placeholder="Enter project name">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-400 text-sm font-medium mb-2">Description</label>
+          <textarea class="w-full bg-gray-900 text-white border border-gray-700 rounded p-2 focus:outline-none focus:border-red-500" rows="3" placeholder="Project description"></textarea>
+        </div>
+        
+        <div class="mb-4">
+          <label class="block text-gray-400 text-sm font-medium mb-2">Project Type</label>
+          <select class="w-full bg-gray-900 text-white border border-gray-700 rounded p-2 focus:outline-none focus:border-red-500">
+            <option value="">Select type</option>
+            <option value="development">Development</option>
+            <option value="design">Design</option>
+            <option value="marketing">Marketing</option>
+            <option value="research">Research</option>
+          </select>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-gray-400 text-sm font-medium mb-2">Start Date</label>
+            <input type="date" class="w-full bg-gray-900 text-white border border-gray-700 rounded p-2 focus:outline-none focus:border-red-500">
+          </div>
+          <div>
+            <label class="block text-gray-400 text-sm font-medium mb-2">End Date</label>
+            <input type="date" class="w-full bg-gray-900 text-white border border-gray-700 rounded p-2 focus:outline-none focus:border-red-500">
+          </div>
+        </div>
+        
+        <div class="mb-4">
+          <label class="block text-gray-400 text-sm font-medium mb-2">Priority Level</label>
+          <div class="flex space-x-4">
+            <label class="inline-flex items-center">
+              <input type="radio" name="priority" class="text-red-500">
+              <span class="ml-2 text-gray-400">Low</span>
+            </label>
+            <label class="inline-flex items-center">
+              <input type="radio" name="priority" class="text-red-500">
+              <span class="ml-2 text-gray-400">Medium</span>
+            </label>
+            <label class="inline-flex items-center">
+              <input type="radio" name="priority" class="text-red-500">
+              <span class="ml-2 text-gray-400">High</span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="mb-4">
+          <label class="block text-gray-400 text-sm font-medium mb-2">Budget</label>
+          <div class="flex">
+            <span class="inline-flex items-center px-3 bg-gray-800 text-gray-400 border border-r-0 border-gray-700 rounded-l">$</span>
+            <input type="number" class="w-full bg-gray-900 text-white border border-gray-700 rounded-r p-2 focus:outline-none focus:border-red-500" placeholder="Enter budget amount">
+          </div>
+        </div>
+        
+        <div class="mb-4">
+          <label class="block text-gray-400 text-sm font-medium mb-2">Team Members</label>
+          <select multiple class="w-full bg-gray-900 text-white border border-gray-700 rounded p-2 focus:outline-none focus:border-red-500">
+            <option>Alice Johnson</option>
+            <option>Bob Smith</option>
+            <option>Carol Davis</option>
+            <option>David Wilson</option>
+          </select>
+        </div>
+        
+        <div class="mb-4">
+          <label class="block text-gray-400 text-sm font-medium mb-2">Initial Tasks</label>
+          <textarea class="w-full bg-gray-900 text-white border border-gray-700 rounded p-2 focus:outline-none focus:border-red-500" rows="2" placeholder="List key initial tasks or milestones"></textarea>
+        </div>
+        
+        <div class="flex justify-end gap-2 mt-6">
+          <button type="button" class="close-modal bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded">Cancel</button>
+          <button type="submit" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded">Create Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+
+
+
+  <script>
+      // Form validation
+  const forms = document.querySelectorAll('form');
+  forms.forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const inputs = form.querySelectorAll('input, textarea, select');
+      let isValid = true;
+
+      inputs.forEach(input => {
+        if (input.hasAttribute('required') && !input.value) {
+          input.classList.add('border-red-500');
+          isValid = false;
+        } else {
+          input.classList.remove('border-red-500');
+        }
+      });
+
+      if (isValid) {
+        alert('Form submitted successfully!');
+        const modal = form.closest('.modal');
+        if (modal) modal.style.display = 'none';
+      }
+    });
+  });
+
+  </script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

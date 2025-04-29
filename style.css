@@ -1,0 +1,2296 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+/* ======================================================== Profile Dropdown effect =========================================================================================== */
+.dropdown-list::after {
+  content: '';
+  width: 1rem;               
+  height: 1rem;              
+  background-color: #0f172a; 
+  position: absolute;       
+  top: -0.5rem;             
+  left: 0;
+  right: 0;
+  margin-left: auto;        
+  margin-right: auto;       
+  transform: rotate(-45deg);
+}
+.dropdown-list {
+  z-index: 100;
+}
+/* ======================================================== Profile Dropdown effect ends =========================================================================================== */
+
+/* ======================================================== Navigation bar hover effect fully responsive starts =========================================================================================== */
+
+.nav-hover-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(45deg, #0e193c, #3b82f6);
+  border-radius: 8px;
+  transition: all 0.5s;
+  z-index: 1;
+  
+}
+
+
+.nav-active-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(45deg, #0e193c, #3b82f6);
+  border-radius: 8px;
+  transition: all 0.5s;
+  z-index: 0; /* Behind hover indicator */
+}
+
+/* Hover effects for desktop menu */
+@media (min-width: 768px) {
+  /* Show hover indicator on hover */
+  .nav-item:hover ~ .nav-hover-indicator {
+      opacity: 1;
+  }
+  
+  .nav-menu ul li:nth-child(1):hover ~ .nav-hover-indicator {
+      left: 0;
+      width: 90px;
+  }
+
+  .nav-menu ul li:nth-child(2):hover ~ .nav-hover-indicator {
+      left: 78px;
+      width: 65px;
+  }
+
+  .nav-menu ul li:nth-child(3):hover ~ .nav-hover-indicator {
+      left: 190px;
+      width: 117px;
+  }
+
+  .nav-menu ul li:nth-child(4):hover ~ .nav-hover-indicator {
+      left: 316px;
+      width: 110px;
+  }
+
+  .nav-menu ul li:nth-child(5):hover ~ .nav-hover-indicator {
+    
+      left: 450px;
+      width: 100px;
+  }
+}
+
+
+/* Mobile styling */
+@media (max-width: 767px) {
+  .nav-menu {
+      background-color: rgba(0, 0, 0, 0.95);
+  }
+
+  .nav-menu ul {
+      width: 100%;
+  }
+
+  .nav-menu ul li {
+      margin-bottom: 0.5rem;
+  }
+
+  .nav-menu ul li a {
+      display: block;
+      text-align: center;
+      width: 100%;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+  }
+  
+  header nav {
+      padding-top: 2rem;
+      padding-bottom: 2.2rem;
+  }
+
+  header nav a img {
+      margin-top: 0.5rem;
+  }
+
+  header .flex.items-center.gap-10 {
+      margin-top: 0.5rem;
+  }
+}
+
+/* Active navigation styling */
+.nav-link.active {
+  position: relative;
+}
+
+.nav-link.active:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 3px;
+  background: linear-gradient(to right, #137ae1, #60a5fa);
+  border-radius: 2px;
+}
+
+@media (max-width: 767px) {
+  .nav-link.active:after {
+      height: 0;
+  }
+
+  .nav-link.active {
+      background: linear-gradient(to right, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.3));
+      border-left: 3px solid #3b82f6;
+  }
+}
+
+
+/* ======================================================== Dropdown Styling =========================================================================================== */
+
+/* Make has-dropdown elements properly positioned */
+.has-dropdown {
+  position: relative;
+}
+
+/* Dropdown arrows styling */
+.dropdown-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  margin-left: 5px;
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
+.has-dropdown.active .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* Cool dropdown styling */
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  display: block !important;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  z-index: 100;
+}
+
+/* When dropdown trigger is active, show the dropdown */
+.has-dropdown.active .nav-dropdown {
+  max-height: 400px;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  padding: 12px 0;
+}
+
+.nav-dropdown-inner {
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  overflow: hidden;
+}
+
+.nav-dropdown-inner a:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.nav-dropdown-inner a:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.nav-dropdown-inner a {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.nav-dropdown-inner a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, #3b82f6, #2563eb);
+  z-index: -1;
+  transition: width 0.3s ease;
+}
+
+.nav-dropdown-inner a:hover::before {
+  width: 100%;
+}
+
+/* Mobile dropdown styling */
+@media (max-width: 767px) {
+  .nav-dropdown {
+      position: static;
+      width: 90%;
+      margin: 5px auto;
+      transform: none;
+      left: auto;
+  }
+  
+  .has-dropdown.active .nav-dropdown {
+      transform: none;
+  }
+}
+
+
+
+/* ======================================================== Search Styling =========================================================================================== */
+/* Search button styling */
+.search-toggle-btn {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(59, 130, 246, 0.2);
+  border-radius: 50%;
+}
+
+.search-toggle-btn i {
+  display: block;
+}
+
+.search-toggle-btn:hover {
+  transform: scale(1.2);
+  text-shadow: 0 0 10px rgba(99, 102, 241, 0.7);
+  background-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Pulse animation for search button */
+.search-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.3);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(0.95);
+      opacity: 0.7;
+  }
+  70% {
+      transform: scale(1.5);
+      opacity: 0;
+  }
+  100% {
+      transform: scale(0.95);
+      opacity: 0;
+  }
+}
+
+/* Search modal styling */
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-form input {
+  caret-color: #3b82f6;
+}
+
+.search-form input::placeholder {
+  opacity: 0.7;
+}
+
+/* Search results styling */
+#search-results {
+  transition: all 0.4s ease-in-out;
+  overflow: hidden;
+}
+
+#search-results.active {
+  max-height: 400px;
+  opacity: 1;
+}
+
+#search-results-list li {
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+#search-results-list li:hover {
+  border-left: 3px solid #3b82f6;
+  padding-left: 6px;
+}
+
+#search-results-list a {
+  color: #e2e8f0;
+  display: block;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+#search-results-list a:hover {
+  color: #3b82f6;
+}
+
+/* Not found animation */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.shake {
+  animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Mobile menu specific styles */
+@media (max-width: 767px) {
+  .nav-menu {
+      background-color: rgba(0, 0, 0, 0.95);
+  }
+ 
+  .nav-menu ul {
+      width: 100%;
+  }
+ 
+  .nav-menu ul li {
+      margin-bottom: 0.5rem;
+  }
+ 
+  .nav-menu ul li a {
+      display: block;
+      text-align: center;
+      width: 100%;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Add padding to the header for mobile view */
+  header nav {
+      padding-top: 2rem;
+      padding-bottom: 2.2rem;
+  }
+ 
+  /* Adjust logo spacing */
+  header nav a img {
+      margin-top: 0.5rem;
+  }
+ 
+  /* Adjust profile container spacing */
+  header .flex.items-center.gap-10 {
+      margin-top: 0.5rem;
+  }
+}
+
+
+/* ========================================================  navigation bar hover effect fully responsive ends =========================================================================================== */
+
+
+
+/* ========================================================  Profle name hover effect starts  =========================================================================================== */
+
+
+.dropdown-profile-name::before , .dropdown-profile-desc::before {
+    transform: scaleX(0) ;
+    transform-origin: bottom right ;
+}
+.dropdown-profile-name:hover::before , .dropdown-profile-desc:hover::before {
+    transform: scaleX(1) ;
+    transform-origin: bottom left ;
+}
+
+.dropdown-profile-name::before , .dropdown-profile-desc::before {
+    content: " " ;
+    display: block ;
+    position: absolute ;
+    top: 0 ;
+    right: 0 ;
+    bottom: 0 ;
+    left: 0 ;
+    inset: 0 0 0 0 ;
+    background: linear-gradient(45deg, #1E5ACC, #51A7FF); ;
+    z-index:  -1;
+    transition: transform .5s ease;
+}
+.dropdown-profile-name , .dropdown-profile-desc {
+
+    position: relative ;
+    z-index: 10 ; /* if not used then continuous line effect will take up this effect */
+    
+}
+
+/* ========================================================  Profle name hover effect ends  =========================================================================================== */
+
+
+/* ========================================================  Infinite line effect under nav starts  =========================================================================================== */
+
+.infinite-line {
+    position: relative;
+  }
+  
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+  
+.infinite-line::after,
+.infinite-line::before {
+    box-sizing: content-box;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    height: 100%;
+    background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+    /* background-image: conic-gradient(from var(--angle), #9ea2aa 0%, #134cb4 100%); */
+    z-index: -1;
+    padding: 2px;
+    border-radius: 10px;
+    animation: spin 4s linear infinite;
+}
+  
+.infinite-line::before {
+    filter: blur(1rem);
+    opacity: 0.5;
+}
+  
+@keyframes spin {
+    from {
+      --angle: 360deg;
+    }
+    to {
+      --angle: 0deg;
+    }
+}
+
+/* ========================================================  Infinite line effect under nav ends  =========================================================================================== */
+
+
+/* Additional responsive styles that complement existing code */
+/* ======================================================== Mobile and responsive enhancements =========================================================================================== */
+/* ========================================================  Responsiveness of nav bar starts  =========================================================================================== */
+
+/* Additional responsive styles that complement existing code */
+/* ======================================================== Mobile and responsive enhancements =========================================================================================== */
+
+/* Base responsive containers */
+
+
+/* Ensure header maintains proper spacing on all devices */
+header.mobile-header {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Enhanced responsive navigation */
+@media (max-width: 767px) {
+  .nav-menu {
+    height: 100vh;
+    padding-top: 4rem !important;
+    overflow-y: auto;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-link {
+    text-align: left;
+    padding: 1rem 1.5rem;
+  }
+
+  #nav-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1010;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(30, 64, 175, 0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav-menu ul {
+    margin-top: 1rem;
+  }
+
+  .nav-menu ul li {
+    margin-bottom: 0.25rem;
+  }
+
+  #nav-close i {
+    font-size: 1.75rem;
+  }
+
+  .nav-dropdown {
+    position: static;
+    width: 100%;
+    max-width: 90%;
+    margin: 0.25rem auto;
+    box-shadow: none;
+  }
+
+  .has-dropdown.active .nav-dropdown {
+    padding: 0.5rem 0;
+  }
+
+  .nav-dropdown-inner a {
+    padding: 0.75rem 1rem;
+  }
+
+  #dropdown .relative.w-\[52px\].h-\[52px\] {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* Extra small screens adjustment */
+@media (max-width: 359px) {
+  #nav-close {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .nav-menu {
+    padding-top: 3.5rem !important;
+    
+  }
+
+  .search-form button {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .search-form button span {
+    display: none;
+  }
+
+  .mobile-logo {
+    width: 80px;
+  }
+
+  header nav {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .flex.items-center.gap-10 {
+    gap: 0.75rem;
+  }
+
+  #dropdown .relative.w-\[52px\].h-\[52px\] {
+    width: 34px;
+    height: 34px;
+  }
+
+  #dropdown .hover\:scale-125:hover {
+    transform: scale(1.1);
+  }
+
+  .dropdown-list {
+    top: 3.2rem;
+  }
+}
+
+/* Mid-size screens (tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .nav-menu ul li:nth-child(1):hover ~ .nav-hover-indicator {
+    left: 0;
+    width: 65px;
+  }
+
+  .nav-menu ul li:nth-child(2):hover ~ .nav-hover-indicator {
+    left: 65px;
+    width: 75px;
+  }
+
+  .nav-menu ul li:nth-child(3):hover ~ .nav-hover-indicator {
+    left: 140px;
+    width: 85px;
+  }
+
+  .nav-menu ul li:nth-child(4):hover ~ .nav-hover-indicator {
+    left: 225px;
+    width: 85px;
+  }
+
+  .nav-menu ul li:nth-child(5):hover ~ .nav-hover-indicator {
+    left: 310px;
+    width: 70px;
+  }
+
+  .nav-link {
+    padding: 0.75rem 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  #dropdown .relative.w-\[52px\].h-\[52px\] {
+    width: 46px;
+    height: 46px;
+  }
+
+  #dropdown .dropdown-profile-name {
+    font-size: 0.9rem;
+  }
+
+  #dropdown .dropdown-profile-desc {
+    font-size: 0.8rem;
+  }
+}
+
+/* Small screens improved spacing */
+@media (max-width: 639px) {
+  .search-form input {
+    font-size: 1rem;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .search-form button {
+    padding: 0.75rem 1rem;
+  }
+
+  #search-results .bg-slate-800 {
+    padding: 1rem;
+  }
+
+  #search-results-list a {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .mobile-nav {
+    height: auto;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  #dropdown .relative.w-\[52px\].h-\[52px\] {
+    width: 38px;
+    height: 38px;
+  }
+  #dropdown .ring-2.ring-offset-2 {
+    position: relative;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 1), 0 0 0 3px #fff; /* ring + offset */
+  }
+
+  .dropdown-list {
+    right: -1rem;
+    top: 3.5rem;
+  }
+}
+
+/* Landscape mode for mobile */
+@media (max-height: 480px) and (orientation: landscape) {
+  .nav-menu {
+    overflow-y: scroll;
+    max-height: 90vh;
+  }
+
+  .nav-menu ul {
+    padding-bottom: 2rem;
+  }
+
+  .search {
+    overflow-y: auto;
+  }
+
+  .search .max-w-xl {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Fix for large screens to maintain original design */
+@media (min-width: 1400px) {
+  .nav-menu ul {
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-hover-indicator {
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu ul li:nth-child(1):hover ~ .nav-hover-indicator {
+    left: 0;
+    width: 90px;
+  }
+
+  .nav-menu ul li:nth-child(2):hover ~ .nav-hover-indicator {
+    left: 90px;
+    width: 95px;
+  }
+
+  .nav-menu ul li:nth-child(3):hover ~ .nav-hover-indicator {
+    left: 190px;
+    width: 117px;
+  }
+
+  .nav-menu ul li:nth-child(4):hover ~ .nav-hover-indicator {
+    left: 316px;
+    width: 125px;
+  }
+
+  .nav-menu ul li:nth-child(5):hover ~ .nav-hover-indicator {
+    left: 450px;
+    width: 95px;
+  }
+}
+
+/* Fix dropdown positioning on different screen sizes */
+@media (min-width: 768px) {
+  .has-dropdown {
+    position: relative;
+  }
+
+  .nav-dropdown {
+    min-width: 13rem;
+  }
+}
+
+/* Ensure proper z-index stacking */
+.mobile-header {
+  z-index: 1000;
+}
+
+.nav-menu {
+  z-index: 1001;
+}
+
+.dropdown-list {
+  z-index: 1002;
+}
+
+.search {
+  z-index: 1003;
+}
+
+/* Improved search modal responsive behavior */
+@media (max-width: 767px) {
+  .search .max-w-xl {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #search-close {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  #search-close .h-12 {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  #search-close i {
+    font-size: 1.5rem;
+  }
+}
+
+
+/* ========================================================  Responsiveness of nav bar ends  =========================================================================================== */
+
+
+
+/* ========================================================  Text gradient Effect starts  =========================================================================================== */
+
+
+@keyframes gradientAnimation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+.animated-gradient-text {
+  background: linear-gradient(270deg, #2563eb, #a855f7, #f59e0b, #2563eb);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientAnimation 6s ease infinite;
+}
+/* ========================================================  Text gradient Effect ends  =========================================================================================== */
+/* ========================================================  Text animation Effect starts  =========================================================================================== */
+.animated-tagline {
+  position: relative;
+  color: rgba(203, 213, 225, 0.9);
+  text-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+  display: flex;
+  flex-wrap: wrap;
+ 
+  justify-content: flex-start;
+  gap: 4px;
+}
+.rotating-text-wrapper {
+  display: inline-flex;
+  align-items: center;
+  height: 1.5em;
+  line-height: 1.5em;
+  position: relative;
+  overflow: hidden; /* Hide text overflow */
+}
+.rotating-text {
+  display: inline-block;
+  white-space: nowrap;
+}
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background-color: #60a5fa;
+  margin-left: 2px;
+  animation: blink 0.8s infinite;
+  vertical-align: middle;
+}
+@keyframes blink {
+  0%, 100% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0;
+  }
+}
+/* For mobile responsiveness */
+@media (max-width: 640px) {
+  .animated-tagline {
+    justify-content: center;
+  }
+}
+
+/* ========================================================  Text animation Effect ends =========================================================================================== */
+
+
+/* ========================================================  Spiders animation Effect starts  =========================================================================================== */
+
+/* Base styles */
+.spider-collection {
+  position: absolute;
+  right: 2rem;
+  top: 8rem;
+  width: 12rem;
+  height: 30rem;
+  z-index: 40;
+  pointer-events: none;
+}
+
+.hanging-spider {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 5rem;
+  pointer-events: auto;
+  transition: transform 0.8s ease-in-out;
+}
+
+#spider1 {
+  right: 10rem;
+  height: 18rem;
+}
+
+#spider2 {
+  left: 4rem;
+  right: 2rem;
+  height: 22rem;
+}
+
+#spider3 {
+  right: 5rem;
+  height: 15rem;
+}
+
+.web-thread {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: rgba(220, 220, 220, 0.7);
+  transform-origin: top center;
+}
+
+.spider-image {
+  position: absolute;
+  width: 6rem;
+  height: 6rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Specific spider styles */
+.yellow-spider,
+.dark-spider,
+.navy-spider {
+  top: calc(100% - 4rem);
+  bottom: 0;
+  background-image: url('images/bug/s1.png'); /* Default image */
+}
+
+.dark-spider {
+  background-image: url('images/bug/s2.png');
+}
+.navy-spider {
+  background-image: url('images/bug/s3.png');
+}
+
+/* Thread wobble effect */
+.hanging-spider:hover .web-thread {
+  animation: thread-wobble 0.4s ease-in-out 2;
+}
+
+@keyframes thread-wobble {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(-4deg); }
+  75% { transform: rotate(3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Animate spider fall */
+.hanging-spider.fall {
+  transform: translateY(100vh);
+  transition: transform 2s ease-in-out;
+}
+
+.hanging-spider.fall-complete {
+  transform: translateY(150vh);
+  transition: transform 2s ease-in-out;
+}
+
+.fall-hover {
+  animation: fullFall 2s ease-in-out forwards;
+}
+
+.climb-hover {
+  animation: climbUp 2s ease-in-out forwards;
+}
+
+@keyframes fallDown {
+  0% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+  30% {
+    transform: translateY(0px);
+  }
+  80% {
+    transform: translateY(100vh);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(150vh);
+    opacity: 0;
+  }
+}
+
+/* Large screen hover effect */
+@media (min-width: 1025px) {
+  .hanging-spider:hover {
+    transform: translateY(10rem);
+  }
+
+  .hanging-spider:hover .spider-image {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 12px #60a5fa);
+  }
+}
+
+/* Medium and Small screen: hide spiders by falling */
+@media (max-width: 1024px) {
+  .spider-collection {
+    pointer-events: none;
+    top: 5rem;
+    right: 0.5rem;
+    width: 10rem;
+    height: 22rem;
+    overflow: hidden;
+  }
+
+  .hanging-spider {
+    width: 4rem;
+  }
+
+  .spider-image {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  #spider1 {
+    right: 6rem;
+    height: 16rem;
+  }
+
+  #spider2 {
+    left: 1.5rem;
+    right: auto;
+    height: 18rem;
+  }
+
+  #spider3 {
+    right: 3rem;
+    height: 14rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .spider-collection {
+    top: 4rem;
+    width: 8rem;
+    height: 20rem;
+  }
+
+  .hanging-spider {
+    width: 3.5rem;
+  }
+
+  .spider-image {
+    width: 3.8rem;
+    height: 3.8rem;
+  }
+
+  #spider1 {
+    right: 3rem;
+    height: 14rem;
+  }
+
+  #spider2 {
+    left: 1rem;
+    right: auto;
+    height: 16rem;
+  }
+
+  #spider3 {
+    right: 1.5rem;
+    height: 12rem;
+  }
+}
+@keyframes fullFall {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(150vh);
+    opacity: 0;
+  }
+}
+
+@keyframes climbUp {
+  0% {
+    transform: translateY(150vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fall-mobile {
+  animation: fullFall 2s ease-out forwards;
+}
+
+.climb-up {
+  animation: climbUp 2s ease-in forwards;
+}
+
+/* ========================================================  Spider animation Effect ends =========================================================================================== */
+
+
+/* ========================================================  button animation Effect starts =========================================================================================== */
+.btn-effect {
+  position: relative;
+  background: #333;
+  transition: background 1s ease-in-out, color 0.4s ease-in-out;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 0.75rem; /* xl */
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  
+  /* Fixed button dimensions */
+  width: 130px;
+  height: 45px;
+  padding: 0;
+  
+  /* Ensure consistent sizing */
+  min-width: 130px;
+  
+  /* Make sure text doesn't wrap awkwardly */
+  white-space: nowrap;
+}
+
+/* Button hover effect */
+.btn-effect::before {
+  content: "";
+  position: absolute;
+  top: var(--y, 50%);
+  left: var(--x, 50%);
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #60a5fa);
+  transition: width 1s ease, height 1s ease;
+  z-index: 0;
+}
+
+.btn-effect:hover::before {
+  width: 500px;
+  height: 500px;
+}
+
+.btn-effect span {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Button container responsiveness */
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Small screens */
+@media (max-width: 639px) {
+  .button-wrapper {
+    gap: 0.75rem;
+    max-width: 300px;
+  }
+}
+
+/* Medium screens */
+@media (min-width: 640px) {
+  .button-wrapper {
+    flex-direction: row;
+    gap: 1rem;
+    max-width: none;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+  .button-container {
+    justify-content: center;
+  }
+}
+
+/* Ensure links fill the entire button area */
+.btn-effect a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-decoration: none;
+}
+
+/* ========================================================  button animation Effect ends =========================================================================================== */
+
+/* ========================================================  hero sectoion animation Effect ends =========================================================================================== */
+
+
+.hero {
+  
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.3), transparent);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.5), transparent);
+}
+
+.glow-button {
+  background: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 100%);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.glow-button:hover {
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+  transform: translateY(-2px);
+}
+
+.glow-button::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  background: linear-gradient(135deg, #3b82f6, #0ea5e9, #06b6d4, #0ea5e9, #3b82f6);
+  border-radius: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-button:hover::before {
+  opacity: 1;
+}
+
+.card-bg {
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(75, 85, 99, 0.3);
+}
+
+.hero-image-container {
+  position: relative;
+}
+
+.hero-image-container::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.hero-image-container:hover::before {
+  opacity: 1;
+}
+
+
+@media (max-width: 1015px) {
+  /* Header section adjustments */
+  .hero {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+  }
+
+  /* Center text alignment for all screen widths below 1016px */
+  .text-center {
+    text-align: center !important;
+  }
+
+  /* Adjust heading for smaller screens */
+  h1.animated-gradient-text {
+    font-size: clamp(1.75rem, 4vw, 3.5rem);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Center the decorative element */
+  .hero .flex.justify-center {
+    justify-content: center !important;
+  }
+
+  /* Adjust the hero image and card container */
+  .hero-image-container {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Card adjustments */
+  .card-bg {
+    padding: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+    margin-top: 8px ;
+  }
+
+  /* Center buttons on smaller screens */
+  .glow-button {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  /* Center trust indicators */
+  .mt-6.flex.items-center {
+    justify-content: center !important;
+    margin-top: 1.5rem;
+  }
+
+  /* Adjust feature badges for wrapping */
+  .hidden.md\:flex.flex-wrap {
+    justify-content: center !important;
+    gap: 0.5rem;
+  }
+
+  /* Adjust container padding */
+  .container.mx-auto {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  
+  /* Adjust vertical spacing between sections */
+  .hero > .container.mx-auto.flex.flex-col {
+    gap: 2rem;
+  }
+}
+
+/* Additional adjustments for very small screens */
+@media (max-width: 639px) {
+  .card-bg {
+    margin-top: 10px ;
+    padding: 1.25rem;
+  }
+  
+  h1.animated-gradient-text {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  }
+  
+  /* Adjust button layout on very small screens */
+  .flex.flex-col.sm\:flex-row {
+    flex-direction: column;
+    width: 100%;
+  }
+ 
+  .glow-button {
+    width: 100%;
+  }
+   
+  /* Improve spacing for trust indicators */
+  .mt-6.flex.items-center.space-x-4 {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+}
+/* ========================================================  Hero section animation Effect ends =========================================================================================== */
+
+
+/* ========================================================  process section animation Effect strats =========================================================================================== */
+
+@keyframes crybug-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.crybug-fade-up {
+  opacity: 0;
+  animation: crybug-fade-up 0.8s ease-out forwards;
+}
+
+/* Optional Delays for Staggered Animations */
+.crybug-fade-up-delay-1 { animation-delay: 0.2s; }
+.crybug-fade-up-delay-2 { animation-delay: 0.4s; }
+.crybug-fade-up-delay-3 { animation-delay: 0.6s; }
+.crybug-fade-up-delay-4 { animation-delay: 0.8s; }
+.crybug-fade-up-delay-5 { animation-delay: 1s; }
+.crybug-fade-up-delay-6 { animation-delay: 1.2s; }
+.crybug-fade-up-delay-7 { animation-delay: 1.4s; }
+.crybug-fade-up-delay-8 { animation-delay: 1.6s; }
+
+/* Step Number Styling */
+.crybug-step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  color: black;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+.crybug-step-number:hover {
+  transform: scale(1.1);
+}
+
+/* Enhanced Interactions */
+.crybug-process-card {
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.crybug-process-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.crybug-process-card.active {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Pulse Animation for Icons */
+@keyframes crybug-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.crybug-icon-pulse:hover {
+  animation: crybug-pulse 2s infinite;
+}
+
+/* Progress Bar */
+.crybug-progress-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+/* Step indicator dots */
+.crybug-step-dot {
+  transition: all 0.3s ease;
+}
+
+.crybug-step-dot.active {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+/* Demo Button - no float animation */
+#crybug-demo-button {
+  box-shadow: 0 8px 20px rgba(255, 165, 0, 0.4);
+}
+
+/* Enhanced cards */
+.crybug-expandable-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.crybug-expandable-content.expanded {
+  max-height: 300px;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Make the step indicator visible */
+#crybug-step-indicator {
+  display: flex;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#crybug-step-indicator.visible {
+  opacity: 1;
+}
+
+/* For hiding elements */
+.crybug-hidden-element {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+/* ========================================================  process section animation Effect ends =========================================================================================== */
+
+
+
+
+/* ========================================================  Infinite Brand Scroll animation Effect starts =========================================================================================== */
+.partner-track {
+  position: relative;
+  width: 90%;
+  max-width: 1536px;
+  height: 100px;
+  margin-inline: auto;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.partner-slide {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation-timing-function: linear;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  transition: transform 0.3s ease;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+/* Bigger, cleaner icons */
+.partner-slide i {
+  font-size: 2.5rem;
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+/* Smooth scale on hover */
+.partner-slide:hover {
+  transform: scale(1.08);
+}
+
+/* Bold, white text */
+.partner-slide span {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  line-height: 1.2;
+}
+@keyframes scrollLeft {
+  to {
+    left: -200px;
+  }
+}
+
+@keyframes scrollRight {
+  to {
+    right: -200px;
+  }
+}
+
+.itemLeft {
+  left: max(calc(200px * 8), 100%);
+  animation-name: scrollLeft;
+}
+
+.itemRight {
+  right: max(calc(200px * 8), calc(100% + 200px));
+  animation-name: scrollRight;
+}
+
+
+/* Delay timings */
+.item1 {
+  animation-delay: calc(30s / 8 * (8 - 1) * -1);
+}
+.item2 {
+  animation-delay: calc(30s / 8 * (8 - 2) * -1);
+}
+.item3 {
+  animation-delay: calc(30s / 8 * (8 - 3) * -1);
+}
+.item4 {
+  animation-delay: calc(30s / 8 * (8 - 4) * -1);
+}
+.item5 {
+  animation-delay: calc(30s / 8 * (8 - 5) * -1);
+}
+.item6 {
+  animation-delay: calc(30s / 8 * (8 - 6) * -1);
+}
+.item7 {
+  animation-delay: calc(30s / 8 * (8 - 7) * -1);
+}
+.item8 {
+  animation-delay: calc(30s / 8 * (8 - 8) * -1);
+} 
+
+@media (max-width: 768px) {
+  .partner-slide {
+    width: 160px;
+    height: 90px;
+  }
+
+  .partner-slide i {
+    font-size: 2rem;
+  }
+
+  .partner-slide span {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .partner-slide {
+    width: 140px;
+    height: 80px;
+  }
+
+  .partner-slide i {
+    font-size: 1.8rem;
+  }
+
+  .partner-slide span {
+    font-size: 0.95rem;
+  }
+}
+
+/* Enhanced Partner Section Styles */
+
+
+
+/* ========================================================  Infinite Brand Scroll animation Effect ends =========================================================================================== */
+
+
+/* ========================================================  Grid Hover efext animation Effect starts =========================================================================================== */
+
+
+.card {
+  --blob-size: 250px;
+  position: relative;
+}
+
+.card .inner {
+  backdrop-filter: blur(80px);
+  height: 100%;
+}
+
+.card .blob {
+  width: var(--blob-size);
+  height: 80%;
+  left: calc(50% - calc(var(--blob-size)/2));
+  filter: blur(40px);
+  z-index: -1;
+  opacity: 0;    
+  transition: opacity 300ms 300ms linear;
+}
+
+.card .fakeblob {
+  visibility: hidden;
+  z-index: -1;
+  height: 100%;
+  /* display: none; */
+}
+/* Custom hover effects */
+.feature-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.feature-card.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(99, 102, 241, 0.05), rgba(168, 85, 247, 0.05));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.icon-container {
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .icon-container {
+  transform: scale(1.2);
+}
+
+/* Animated gradient text */
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientAnimatio 3s ease infinite;
+}
+
+@keyframes gradientAnimatio {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Fade in animation for stats */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Button pulse effect */
+@keyframes pul {
+  0% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(139, 92, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+  }
+}
+
+#try-toolkit-btn:hover {
+  animation: pul 1.5s infinite;
+}
+
+
+
+/* counter */
+
+.timeline-connector {
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  left: 24px;
+  width: 2px;
+  background: linear-gradient(to bottom, #4ade80, #0ea5e9, #a78bfa, #fb7185);
+}
+
+.step-icon {
+  position: relative;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.timeline-item {
+  transform: translateY(40px);
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+.timeline-item.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.timeline-item:hover .step-icon {
+  transform: scale(1.2) rotate(10deg);
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+.timeline-content {
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-content {
+  transform: translateX(10px);
+}
+
+
+/* Timeline responsive styles */
+@media (max-width: 768px) {
+  /* Timeline connector adjustment */
+  .timeline-connector {
+    left: 20px;
+  }
+  
+  /* Timeline items spacing and layout */
+  .timeline-item {
+    flex-direction: column;
+    padding-left: 0;
+    gap: 1rem;
+  }
+  
+  /* Step icon positioning */
+  .step-icon {
+    font-size: 2rem;
+    padding: 0.75rem;
+  }
+  
+  /* Content adjustment */
+  .timeline-content {
+    width: 100%;
+  }
+  
+  /* Stats boxes in timeline */
+  .timeline-content .flex {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  /* Work process section padding */
+  #work-process {
+    padding: 3rem 1rem;
+  }
+  
+  /* Section heading font size adjustment */
+  #work-process h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+  /* Timeline structure */
+  .timeline-item {
+    padding-right: 0;
+  }
+  
+  /* Timeline connector adjustment */
+  .timeline-connector {
+    left: 16px;
+  }
+  
+  /* Content extra spacing */
+  .timeline-content {
+    padding: 0 0.5rem;
+  }
+  
+  /* CTA button size adjustment */
+  #get-started-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Section heading further reduction */
+  #work-process h2 {
+    font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+  }
+  
+  /* Step icon size reduction */
+  .step-icon {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+}
+
+/* Medium screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Slightly adjust timeline spacing */
+  .timeline-item {
+    gap: 1.5rem;
+    padding-right: 1rem;
+  }
+  
+  /* Maintain section padding but reduce slightly */
+  #work-process {
+    padding: 4rem 2rem;
+  }
+}
+
+/* Preserve hover animations only on devices that support hover */
+@media (hover: hover) {
+  .timeline-item:hover .step-icon {
+    transform: scale(1.2) rotate(10deg);
+    filter: drop-shadow(0 0 8px currentColor);
+  }
+  
+  .timeline-item:hover .timeline-content {
+    transform: translateX(10px);
+  }
+}
+
+/* Non-hover devices - disable hover effects */
+@media (hover: none) {
+  .timeline-item:hover .step-icon,
+  .timeline-item:hover .timeline-content {
+    transform: none;
+    filter: none;
+  }
+}
+/* @keyframes pulse-glow {
+  0%, 100% { filter: drop-shadow(0 0 5px currentColor); }
+  50% { filter: drop-shadow(0 0 15px currentColor); }
+}
+
+.pulse-effect {
+  animation: pulse-glow 2s infinite;
+} */
+
+
+/* ========================================================  Grid Hover efext animation Effect ends =========================================================================================== */
+
+
+
+
+
+/* ========================================================  Project animation Effect starts =========================================================================================== */
+
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-border {
+  0%, 100% { border-color: rgba(168, 85, 247, 0.4); }
+  50% { border-color: rgba(168, 85, 247, 0.8); }
+}
+
+.pulse-border {
+  animation: pulse-border 3s infinite;
+}
+
+/* Gradient card background */
+.gradient-bg {
+  background: linear-gradient(135deg, rgba(31, 41, 55, 0.7) 0%, rgba(17, 24, 39, 0.9) 100%);
+}
+
+/* Custom scroll reveal effect (CSS-only alternative) */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal:nth-child(1) { transition-delay: 0.1s; }
+.reveal:nth-child(2) { transition-delay: 0.3s; }
+.reveal:nth-child(3) { transition-delay: 0.5s; }
+.reveal:nth-child(4) { transition-delay: 0.7s; }
+
+/* This class would typically be added via JS, but for this demo we'll use :target as a CSS-only alternative */
+#about-us:target .reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Since we can't use JS, we'll make them visible by default after a short delay */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    animation: reveal-animation 0.8s forwards;
+    animation-delay: calc(var(--reveal-delay, 0) * 0.2s);
+    visibility: hidden;
+  }
+  
+  @keyframes reveal-animation {
+    0% {
+      transform: translateY(30px);
+      opacity: 0;
+      visibility: visible;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+
+
+/* ========================================================  Project animation Effect ends =========================================================================================== */
+
+
+
+
+/* ========================================================  Testimonials animation Effect starts =========================================================================================== */
+
+
+
+.crybug-testimonial-gradient {
+  background: linear-gradient(45deg, #ff2e63, #a73489, #7954a1);
+  
+  /* Standard and WebKit mask handling */
+  mask: none;
+  -webkit-mask: none;
+
+  /* Background clip to text: cross-browser */
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+
+  background-size: 200% 200%;
+  animation: crybug-gradient-shift 10s ease infinite;
+}
+
+@keyframes crybug-gradient-shift {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+.crybug-testimonial-card {
+  transform: translateY(0);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  min-height: 300px;
+}
+
+.crybug-testimonial-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 30px 40px -15px rgba(0, 0, 0, 0.7);
+}
+
+.crybug-testimonial-border {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.crybug-testimonial-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(45deg, rgba(255, 46, 99, 0.5), rgba(167, 52, 137, 0.5), rgba(121, 84, 161, 0.5));
+  
+  /* Standard + WebKit mask compatibility */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); /* Standard */
+
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+
+  z-index: -1;
+  opacity: 0.5;
+}
+
+
+.crybug-testimonial-glow {
+  position: relative;
+}
+
+.crybug-testimonial-glow::after {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 46, 99, 0.5) 0%, rgba(255, 46, 99, 0) 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.crybug-testimonial-card:hover .crybug-testimonial-glow::after {
+  opacity: 1;
+}
+
+.star-rating i {
+  color: #FBBF24;
+  font-size: 1.25rem;
+  margin-right: 2px;
+}
+
+/* Card-specific accent colors */
+.card-accent-pink::before {
+  background: linear-gradient(45deg, rgba(255, 46, 99, 0.7), rgba(167, 52, 137, 0.7), rgba(121, 84, 161, 0.7));
+}
+
+.card-accent-teal::before {
+  background: linear-gradient(45deg, rgba(20, 184, 166, 0.7), rgba(59, 130, 246, 0.7), rgba(99, 102, 241, 0.7));
+}
+
+.card-accent-blue::before {
+  background: linear-gradient(45deg, rgba(59, 130, 246, 0.7), rgba(99, 102, 241, 0.7), rgba(139, 92, 246, 0.7));
+}
+
+.card-accent-orange::before {
+  background: linear-gradient(45deg, rgba(245, 158, 11, 0.7), rgba(239, 68, 68, 0.7), rgba(217, 70, 239, 0.7));
+}
+
+.card-accent-green::before {
+  background: linear-gradient(45deg, rgba(16, 185, 129, 0.7), rgba(59, 130, 246, 0.7), rgba(99, 102, 241, 0.7));
+}
+
+.card-accent-purple::before {
+  background: linear-gradient(45deg, rgba(139, 92, 246, 0.7), rgba(217, 70, 239, 0.7), rgba(99, 102, 241, 0.7));
+}
+
+/* Quote icon */
+.quote-icon {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  opacity: 0.15;
+  font-size: 4rem;
+  color: white;
+}
+
+/* Animated background */
+.animated-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.animated-bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.1;
+  animation: float 20s infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(10%, 15%) scale(1.05);
+  }
+  50% {
+    transform: translate(5%, -10%) scale(0.95);
+  }
+  75% {
+    transform: translate(-10%, 5%) scale(1.1);
+  }
+}
+
+
+/* ========================================================  Testimonials animation Effect ends =========================================================================================== */
+
+
+/* ========================================================  Gallery animation Effect starts =========================================================================================== */
+
+
+
+
+.team-carousel {
+  animation: teamSlideAnimation 30s linear infinite;
+}
+
+@keyframes teamSlideAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.team-expert-card {
+  transition: all 0.3s ease;
+}
+
+.team-expert-card:hover {
+  transform: translateY(-15px);
+}
+
+.slideIn {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.slideIn.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.member-img {
+  transition: all 0.4s ease;
+  border: 3px solid transparent;
+}
+
+.team-expert-card:hover .member-img {
+  border-color: currentColor;
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.stat-pulse {
+  animation: stat-pulse-animation 2s infinite;
+}
+
+@keyframes stat-pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+
+
+/* ========================================================  Gallery animation Effect ends =========================================================================================== */
+
+

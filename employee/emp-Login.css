@@ -1,0 +1,191 @@
+.bg-gradient-dark {
+    background: linear-gradient(135deg, #1e1b4b, #3b0764);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(109.6deg, rgba(238,58,136,1) 11.2%, rgba(128,162,245,1) 91.1%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .btn-gradient {
+    background: linear-gradient(109.6deg, rgba(238,58,136,1) 11.2%, rgba(128,162,245,1) 91.1%);
+  }
+  
+  .btn-gradient:hover {
+    background: linear-gradient(109.6deg, rgba(238,58,136,0.9) 11.2%, rgba(128,162,245,0.9) 91.1%);
+  }
+  
+  .logo-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 9rem;
+    height: 9rem;
+    background: radial-gradient(circle, rgba(238,58,136,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(0.9);
+      opacity: 0.7;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.1);
+      opacity: 0.3;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0.9);
+      opacity: 0.7;
+    }
+  }
+  
+  .login-card {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .status-message {
+    display: none;
+    padding: 0.75rem;
+    margin: 0.75rem 0;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  .status-message.show {
+    display: block;
+    animation: fadeInMessage 0.3s ease forwards;
+  }
+  
+  @keyframes fadeInMessage {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .loading > div {
+    width: 8px;
+    height: 8px;
+    margin: 0 3px;
+    border-radius: 50%;
+    background-color: #e0e7ff;
+    animation: loading 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  }
+  
+  .modal.backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  
+  @keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-modal-fade-in {
+    animation: modalFadeIn 0.3s ease-out forwards;
+  }
+  
+  input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1px solid rgba(238,58,136,1);
+    border-radius: 4px;
+    background-color: #1f2937;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  input[type="checkbox"]:checked {
+    background: linear-gradient(109.6deg, rgba(238,58,136,1) 11.2%, rgba(128,162,245,1) 91.1%);
+    border-color: rgba(238,58,136,1);
+    position: relative;
+  }
+  
+  input[type="checkbox"]:checked::after {
+    content: "✓";
+    color: white;
+    font-size: 12px;
+    position: absolute;
+  }
+
+  button[type="submit"] {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+  }
+  
+  button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    z-index: 1;
+    transition: left 0.5s ease;
+  }
+  
+  button[type="submit"]:hover::before {
+    left: 100%;
+  }
+  
+  button[type="submit"] span {
+    position: relative;
+    z-index: 2;
+  }
+
+
+  .nav-button {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+  }
+  
+  .nav-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: all 0.6s ease;
+  }
+  
+  .nav-button:hover::after {
+    left: 100%;
+  }
+  
+  .icon-float {
+    animation: icon-bounce 2s infinite ease-in-out;
+  }
+  
+  /* Ensure buttons remain visible on all backgrounds */
+  .nav-button {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  /* Alternative for smaller screens - moves buttons below */
+  @media (max-width: 480px) {
+    .fixed.top-6 {
+      position: absolute;
+    }
+  }
+
