@@ -1,8 +1,7 @@
-Sure! Here's the entire content, including the **updated folder structure**, formatted using `#`, `##`, and `-` for easy copy-pasting into your README or documentation file:
 
 ---
 
-# 🐞 CryBug – Advanced Bug Tracking and Task Management System
+# 🕷 CryBug – Advanced Bug Tracking and Task Management System
 
 CryBug is a modern, responsive, and role-based web application designed to streamline software development by tracking bugs, assigning tasks, and managing team workflows in a structured and collaborative environment.
 
